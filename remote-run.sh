@@ -21,7 +21,7 @@ url="$1"
 script="$2"
 
 if [ ! "$url" ]; then
-  err "Usage: $0 ssh-url [<local-script>]"
+  err "Usage: $0 <ssh-url> [<local-script>]"
 fi
 
 remote_command () {
