@@ -10,19 +10,18 @@ err () {
 }
 
 ssh_args=""
-script=""
-while getopts "f:p:" o; do
+while getopts "p:" o; do
   case "$o" in
-    f) script="$OPTARG" ;;
     p) ssh_args="-p $OPTARG" ;;
   esac
 done
 shift $(($OPTIND-1))
 
 url="$1"
+script="$2"
 
 if [ ! "$url" ]; then
-  err "Usage: $0 [-f script] ssh-url"
+  err "Usage: $0 ssh-url [<local-script>]"
 fi
 
 remote_command () {
