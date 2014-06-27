@@ -20,7 +20,7 @@ shift $(($OPTIND-1))
 url="$1"
 script="$2"
 
-if [ ! "$url" ]; then
+if test $# -lt 1 || test -z "$url"; then
   err "Usage: $0 <ssh-url> [<local-script>]"
 fi
 
